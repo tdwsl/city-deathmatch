@@ -1,10 +1,7 @@
 Program CityDeathmatch;
 
-{$IFDEF WINDOWS}
-  {$UNITPATH C:\allegro.pas-5.2.b.1-1\src\lib}
-{$ELSE}
-  {$UNITPATH ~/allegro.pas-5.2.b.1-1/obj}
-{$ENDIF}
+{ Change allegro.pas unit directory here: }
+{$UNITPATH C:\allegro.pas-5.*\src\lib;~/allegro.pas-5.*/obj;../allegro.pas-5.*/obj}
 
 Uses
   sysutils, math, al5base, al5strings, allegro5, al5font, al5image, al5primitives;
