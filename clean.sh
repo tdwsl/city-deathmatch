@@ -1,0 +1,1 @@
+rm deathmatch deathmatch.o
