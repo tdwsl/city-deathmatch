@@ -76,8 +76,11 @@ Begin
   gQueue := al_create_event_queue;
   EnsureInit(gQueue <> nil, 'event queue');
   gWidth := 640;
-  gHeight := 400;
+  gHeight := 480;
   al_set_new_display_flags(ALLEGRO_WINDOWED or ALLEGRO_RESIZABLE);
+  al_set_new_display_option(ALLEGRO_SAMPLE_BUFFERS, 1, ALLEGRO_SUGGEST);
+  al_set_new_display_option(ALLEGRO_SAMPLES, 4, ALLEGRO_SUGGEST);
+  al_set_new_bitmap_flags(ALLEGRO_MIN_LINEAR or ALLEGRO_MAG_LINEAR);
   gDisp := al_create_display(gWidth, gHeight);
   EnsureInit(gDisp <> nil, 'display');
   gFont := al_create_builtin_font;
@@ -799,10 +802,10 @@ End;
 Procedure DrawMinimap(x, y: integer);
 Begin
   al_draw_scaled_bitmap(gMinimap, 0, 0, gMapW, gMapH, x, y, gMapW*2, gMapH*2, 0);
-  al_draw_filled_rectangle(x+trunc(gP1.x) shr 4 + 1, y+trunc(gP1.y) shr 4 + 1,
-    x+trunc(gP1.x) shr 4 + 3, y+trunc(gP1.y) shr 4 + 3, al_map_rgb($ff,$00,$00));
-  al_draw_filled_rectangle(x+trunc(gP2.x) shr 4 + 1, y+trunc(gP2.y) shr 4 + 1,
-    x+trunc(gP2.x) shr 4 + 3, y+trunc(gP2.y) shr 4 + 3, al_map_rgb($00,$00,$ff));
+  al_draw_filled_rectangle(x+trunc(gP1.x) shr 4 - 1, y+trunc(gP1.y) shr 4 - 1,
+    x+trunc(gP1.x) shr 4 + 5, y+trunc(gP1.y) shr 4 + 5, al_map_rgb($ff,$00,$00));
+  al_draw_filled_rectangle(x+trunc(gP2.x) shr 4 - 1, y+trunc(gP2.y) shr 4 - 1,
+    x+trunc(gP2.x) shr 4 + 5, y+trunc(gP2.y) shr 4 + 5, al_map_rgb($00,$00,$ff));
 End;
 
 Procedure DrawBullets(xo, yo: integer);
