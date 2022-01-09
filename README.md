@@ -1,5 +1,7 @@
 City Deathmatch
 
+![screenshot-img](https://raw.githubusercontent.com/tdwsl/city-deathmatch/main/screenshot.png)
+
 ABOUT
 
 This is a simple 2-player game about shooting each other and (with limited
